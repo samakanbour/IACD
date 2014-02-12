@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <title>Scraping Data</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+  <link rel="shortcut icon" href="https://raw.github.com/jllord/sheetsee-cache/master/favico.png" />
+  <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js'></script>
+  <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.1.0/tabletop.min.js'></script>
+  <script type='text/javascript' src='js/sheetsee.js'></script>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script type="text/javascript" src='js/bar.js'></script>
+  <script type="text/javascript" src='js/bubble.js'></script>
+  <script type="text/javascript" src='js/matrix.js'></script>
+  <script type="text/javascript" src='js/script.js'></script>
+  <link rel="stylesheet" type="text/css" media="all" href="css/style.css">
+</head>
+
+<body>
+  <header>Top 500 songs since 2009</header>
+  <section>
+
+    <article>popularity per artist</article>
+    <div id="line"></div>
+
+    <article>popularity per genre</article>    
+    <div id="bubble"></div>
+
+    <article>success per gender</article>    
+    <form>
+        <input type="radio" name="mode" value="grouped" id="grouped">
+        <label class='radio'>grouped</label>
+        <input type="radio" name="mode" value="stacked" id="stacked" checked>
+        <label class='radio'>stacked</label>
+    </form>
+    <div id="bar"></div>
+    
+    <article>common words across 90 tracks</article>
+    <select id="order">
+      <option value="name">ORDER BY TRACK</option>
+      <option value="count">ORDER BY WORD FREQUENCY</option>
+      <option value="group">ORDER BY ARTIST</option>
+    </select>
+    <div id="matrix"></div>
+
+  
+  </section>
+</body>
+
+</html>

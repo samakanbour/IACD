@@ -1,0 +1,193 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,aside,details,figcaption,figure,footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,ul {
+    list-style: none;
+}
+
+blockquote,q {
+    quotes: none;
+}
+
+blockquote:before,blockquote:after,q:before,q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+body {
+    background: #ecebe9;
+    font-family: Helvetica, sans-serif;
+    width: 100%;
+}
+
+section {
+    padding: 20px 0 0 150px;
+}
+
+text {
+    font-size: 10px;
+    fill: #38383B;
+}
+
+text.active {
+    fill: #aad;
+}
+
+#matrix line {
+    stroke: #fff;
+}
+
+#line.axis {
+    shape-rendering: crispEdges;
+}
+
+#line.y.axis line, #line.y.axis path, #line.x.axis path {
+    fill: none;
+    stroke: #acacac;
+    stroke-width: 1;
+}
+
+#line.x.axis line {
+    stroke: #acacac;
+    stroke-opacity: .75;
+}
+
+.bigg {
+    -webkit-transition: all .2s ease-in-out;
+    -webkit-transform: scale(2);
+}
+
+path.chartLine {
+    stroke-width: 0;
+    fill: none;
+}
+
+#line div.tooltip {
+    position: absolute;
+    text-align: center;
+    padding: 4px 8px;
+    width: auto;
+    font-size: 12px;
+    height: auto;
+    color: #aad;
+    background: #38383B;
+    background: rgba(56,56,59,.9);
+    border: 0px;
+    pointer-events: none;
+    font-family: Helvetica, sans-serif;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#line circle {
+    fill: #556;
+    cursor: pointer;
+}
+
+path.domain {
+    fill: none;
+}
+
+header {
+    height: 50px;
+    line-height: 50px;
+    color: #C59D5E;
+    background: #38383B repeat-x top left;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-weight: lighter;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+article {
+    margin: 40px 0 20px 0;
+    height: 50px;
+    line-height: 50px;
+    color: #38383B;
+    font-weight: lighter;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 30px;
+}
+
+label {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    padding-left: 25px;
+    margin-right: 15px;
+    font-size: 13px;
+    color: #38383B;
+    font-weight: lighter;
+    text-transform: uppercase;
+}
+
+input[type=radio] {
+    display: none;
+}
+
+label:before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    position: absolute;
+    left: 0;
+    bottombottom: 1px;
+    background-color: rgba(56,56,59,.9);
+    box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+}
+
+form label:before {
+    border-radius: 8px;
+}
+
+input[type=radio]:checked + label:before {
+    content: "\2022";
+    color: #aad;
+    font-size: 40px;
+    text-align: center;
+    line-height: 45%;
+}
+
+.background {
+    fill: none;
+}
+
+#order {
+    margin-top: 20px;
+}
