@@ -1,0 +1,140 @@
+@charset "UTF-8";
+/* CSS Document */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,aside,details,figcaption,figure,footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,ul {
+    list-style: none;
+}
+
+blockquote,q {
+    quotes: none;
+}
+
+blockquote:before,blockquote:after,q:before,q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #3B3B3B;
+    line-height: 1.2;
+    overflow: hidden;
+    color: #fff;
+    height: 100%;
+}
+
+note p {
+    font-size: 180%;
+    line-height: 150%;
+    margin: 5%;
+    letter-spacing: -2px;
+    text-align: right;
+}
+
+section {
+    position: absolute;
+    margin: 2% 10%;
+    background-color: #686868;
+    -moz-box-shadow: inset #3B3B3B 5px 5px 0 0;
+    -webkit-box-shadow: inset #3B3B3B 5px 5px 0 0;
+    box-shadow: inset #3B3B3B 5px 5px 0 0;
+}
+
+map {
+    height: calc(100% - 5px);
+    width: calc(100% - 5px);
+    display: block;
+    margin: 5px;
+}
+
+#chart {
+    width: 99%;
+}
+
+.odometer, #text {
+    width: 90%;
+    font-size: 5em;
+    margin: 5%;
+    color: rgba(0, 255, 230, .5);
+    text-align: right;
+}
+
+#text {
+    font-size: 2.5em;
+    color: rgba(0, 255, 230, .4);
+    margin-top: -5%;
+}
+
+svg text {
+    font-size: 9px;
+    fill: #fff;
+    color: #fff;
+}
+
+#pie {
+    margin: 0 auto;
+}
+
+#one, #two, #three {
+    width: 30%;
+    height: 30%;
+}
+
+#four, #five {
+    width: 50%;
+    left: 30%;
+}
+
+#two {
+    top: 30%;
+}
+
+#three {
+    top: 60%;
+}
+
+#four {
+    height: 60%;
+    top: 0;
+}
+
+#five {
+    height: 30%;
+    top: 60%;
+}
