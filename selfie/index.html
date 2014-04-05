@@ -3,8 +3,9 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-	<title>Selfie</title>	
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans">
+	<link rel="shortcut icon" href="img/crown.png">
+	<title>Quantified Selfie</title>	
 	<link rel="stylesheet" href="css/style.css" type="text/css">
 	<link rel="stylesheet" href="css/odometer-theme-minimal.css">
 	<link rel="stylesheet" href="css/nv.d3.css" type="text/css">
@@ -22,16 +23,34 @@
 		<note><p>COORELATIONS BETWEEN SHOPPING & WALKING</p></note>
 	</section>
 	<section id="two">
-		<svg id="pie"></svg>
-	</section>
-	<section id="three">
 		<div class="odometer">0000.00</div>
 		<div id="text">steps</div>
+		<div id="description">
+			<div id="intro">
+			Between January 15th and March 3rd of 2014, I collected personal data that could give insight into my lifestyle in Pittsburgh, PA. I used Nike+ FuelBand to record the number of steps I take every day and OpenPaths to record the places I visit. As for my spending information, I logged into my online bank account and exported my transactions. </br> Are the findings exciting? Not really, but they still highlight the benefits of my shopping addiction!	
+			</div>		
+			<article>
+				<div class="icon"><img src="img/calendar.png"></div>
+				<p id="day"></p>
+			</article>
+			<article>
+				<div class="icon"><img src="img/pin.png"></div>
+				<p id="pin"></p>
+			</article>
+			<article>
+				<div class="icon"><img src="img/steps.png"></div>
+				<p id="steps"></p>
+			</article>
+			<article>
+				<div class="icon"><img src="img/usd.png"></div>
+				<p id="usd"></p>
+			</article>
+		</div>
 	</section>
-	<section id="four" class="box">
+	<section id="three" class="box">
 		<map id="map"></map>
 	</section>
-	<section id="five">
+	<section id="four">
 		<svg id="chart"></svg>
 	</section>
 </body>

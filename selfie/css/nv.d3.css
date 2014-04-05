@@ -1,97 +1,38 @@
-/**********
-*  Bars
-*/
-
 .nvd3 .nv-multibar .nv-groups rect,
 .nvd3 .nv-multibarHorizontal .nv-groups rect,
 .nvd3 .nv-discretebar .nv-groups rect {
   stroke-opacity: 0;
-
   transition: fill-opacity 250ms linear;
   -moz-transition: fill-opacity 250ms linear;
   -webkit-transition: fill-opacity 250ms linear;
 }
 
+.nvtooltip {
+  display: none;
+}
 
-/**********
-* Lines
-*/
+.nv-bar {
+  fill-opacity: 0.6;
+  cursor: pointer;
+}
+
+.nv-bar:hover {
+  fill-opacity: 1;
+}
 
 .nvd3 .nv-groups path.nv-line {
   fill: none;
   stroke-width: 1.5px;
 }
 
-.nvd3 .nv-groups path.nv-line.nv-thin-line {
-  stroke-width: 1px;
-}
-
-
-.nvd3 .nv-groups path.nv-area {
-  stroke: none;
-}
-
-.nvd3 .nv-line.hover path {
-  stroke-width: 6px;
-}
-
-
-.nvd3.nv-line .nvd3.nv-scatter .nv-groups .nv-point {
-  fill-opacity: 0;
-  stroke-opacity: 0;
-}
-
-.nvd3.nv-scatter.nv-single-point .nv-groups .nv-point {
-  fill-opacity: .5 !important;
-  stroke-opacity: .5 !important;
-}
-
-
 .with-transitions .nvd3 .nv-groups .nv-point {
   transition: stroke-width 250ms linear, stroke-opacity 250ms linear;
   -moz-transition: stroke-width 250ms linear, stroke-opacity 250ms linear;
   -webkit-transition: stroke-width 250ms linear, stroke-opacity 250ms linear;
-
 }
-
-.nvd3.nv-scatter .nv-groups .nv-point.hover,
-.nvd3 .nv-groups .nv-point.hover {
-  stroke-width: 7px;
-  fill-opacity: .95 !important;
-  stroke-opacity: .95 !important;
-}
-
 
 .nvd3 .nv-point-paths path {
-  stroke: #aaa;
-  stroke-opacity: 0;
   fill: #eee;
   fill-opacity: 0;
 }
 
-.nvd3 .nv-legend .nv-series {
-    cursor: pointer;
-}
-
-.nvd3 .nv-legend .disabled circle {
-    fill-opacity: 0;
-}
-
-.nvd3 .nv-pie path {
-    stroke-opacity: 0;
-    transition: fill-opacity 250ms linear, stroke-width 250ms linear, stroke-opacity 250ms linear;
-    -moz-transition: fill-opacity 250ms linear, stroke-width 250ms linear, stroke-opacity 250ms linear;
-    -webkit-transition: fill-opacity 250ms linear, stroke-width 250ms linear, stroke-opacity 250ms linear;
-}
-
-.nvd3 .nv-pie {
-    fill-opacity: .6;
-}
-
-.nvd3 .nv-pie .hover {
-    fill-opacity: 1;
-}
-
-.nvtooltip {
-  display: none;
-}

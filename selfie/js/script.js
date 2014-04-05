@@ -5,6 +5,8 @@ $(document).ready(function () {
 	}, 1000);
 });
 
+var map;
+
 function init() {
 	Tabletop.init({
 		key: "0AhtG6Yl2-hiRdFF1d21nVnVmQmp5X25ha0hzbTV1OFE",
@@ -12,32 +14,17 @@ function init() {
 	});
 }
 
-function initData(result) {
-	var pieData = [{
-		key: "Food",
-		y: .25 * 1535.25
-	}, {
-		key: "Housing",
-		y: .04 * 1535.25
-	}, {
-		key: "Clothes",
-		y: .48 * 1535.25
-	}, {
-		key: "Health",
-		y: .07 * 1535.25
-	}, {
-		key: "Beauty",
-		y: .10 * 1535.25
-	}, {
-		key: "Education",
-		y: .01 * 1535.25
-	}, {
-		key: "Fun",
-		y: .05 * 1535.25
-	}];
-	createPie(pieData);
-	google.maps.event.addDomListener(window, 'load', initMap);
+function day(){
+	this.date = null;
+	this.spending = null;
+	this.steps = null;
+	this.longitude = null;
+	this.latitude = null;
+	this.location = null;
+}
 
+function initData(result) {
+	google.maps.event.addDomListener(window, 'load', initMap);
 	function initMap() {
 		var styles = [{
 			stylers: [{
@@ -72,32 +59,45 @@ function initData(result) {
 		var mapOptions = {
 			zoom: 11,
 			disableDefaultUI: true,
-			center: new google.maps.LatLng(40.4717, -79.9700)
+			center: new google.maps.LatLng(40.4857, -79.9700)
 		}
-		var map = new google.maps.Map($('#map')[0], mapOptions);
+		map = new google.maps.Map($('#map')[0], mapOptions);
 		map.mapTypes.set('map_style', styledMap);
 		map.setMapTypeId('map_style');
-		addMarkers(result.map.elements, map, true);
+		addMarkers(result.map.elements, true);
+		addGraph(result.data.elements);
 	}
+}
+
+function addGraph(result) {
+	var data = {};
 	var chartData = [{
 		key: 'Steps',
 		values: [],
 		type: 'bar',
 		yAxis: 2
 	}, {
-		key: 'Spendings',
+		key: 'Spending',
 		values: [],
 		type: 'line',
 		yAxis: 1
 	}];
-	result.steps.elements.forEach(function (row) {
+	result.forEach(function (row) {
+		var d = new day();
+		d.date = row.date;
+		d.steps = row.steps;
+		d.spending = row.spending;
+		d.longitude = row.longitude;
+		d.latitude = row.latitude;
+		d.location = row.location;
+		data[row.id] = d;
 		chartData[0].values.push({
 			x: parseInt(row.id),
 			y: parseInt(row.steps)
 		});
 		chartData[1].values.push({
 			x: parseInt(row.id),
-			y: parseInt(row.spendings)
+			y: parseInt(row.spending)
 		});
 	});
 	nv.addGraph(function () {
@@ -113,10 +113,25 @@ function initData(result) {
 			.datum(chartData)
 			.transition().duration(500).call(chart);
 		return chart;
+	}, function(){
+		d3.selectAll(".nv-bar").on('click', function(e){
+			$('.odometer').html(data[e.x].steps);
+			$('article').css('display','block');
+			$('#intro').css('display','none');	
+			$('#day').html(data[e.x].date.split('/').join('.'));
+			$('#pin').html(data[e.x].location);
+			$('#usd').html(data[e.x].spending);
+			$('#steps').html(data[e.x].steps);
+			if (data[e.x].latitude != 0) {
+				zoom(20, new google.maps.LatLng(data[e.x].latitude, data[e.x].longitude), map);	
+			} else {
+				zoom(11, new google.maps.LatLng(40.4857, -79.9700), map);	
+			}	
+		});
 	});
 }
 
-function addMarkers(data, map, cluster) {
+function addMarkers(data, cluster) {
 	markers = [];
 	var icon = {
 		url: 'img/marker.png',
@@ -147,7 +162,7 @@ function addMarkers(data, map, cluster) {
 	}
 }
 
-function zoom(n, position, map) {
+function zoom(n, position) {
 	var z = map.getZoom();
 	if (z < n) {
 		z += 1;
@@ -166,33 +181,4 @@ function zoom(n, position, map) {
 	} else {
 		map.setCenter(position);
 	}
-}
-
-function createPie(data) {
-	nv.addGraph(function () {
-		var width = 320,
-			height = 350;
-		var chart = nv.models.pieChart()
-			.x(function (d) {
-				return d.key
-			})
-			.color(["rgba(0, 255, 230, .2)", "rgba(0, 255, 230, .3)", "rgba(0, 255, 230, .4)", "rgba(0, 255, 230, .5)", "rgba(0, 255, 230, .6)", "rgba(0, 255, 230, .7)", "rgba(0, 255, 230, .8)"])
-			.width(width)
-			.height(height)
-			.donut(true);
-		chart.pie
-			.startAngle(function (d) {
-				return d.startAngle / 2 - Math.PI / 2
-			})
-			.endAngle(function (d) {
-				return d.endAngle / 2 - Math.PI / 2
-			});
-		d3.select("#pie")
-			.datum(data)
-			.transition().duration(1200)
-			.attr('width', width)
-			.attr('height', height)
-			.call(chart);
-		return chart;
-	});
 }
